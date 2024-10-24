@@ -2,6 +2,7 @@ package com.opencart.managers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
@@ -17,6 +18,10 @@ public class DriverManager {
             // toUpperCase este o metoda de instanta, aplicabila pentru obiectele de tip String,
             // returneaza stringul doar ca cu litere mari
             case "CHROME":
+                //WebDriverManager.chromedriver().setup();
+                //ChromeOptions options = new ChromeOptions();
+                //options.addArguments("--remote-allow-origins=*");
+                //driver = new ChromeDriver(options);
                 driver = new ChromeDriver(); // driver - este obiect, si este initializat cu constructorul ChromeDriver
                 System.out.println("The Chrome Driver was initiated!");
                 break;
