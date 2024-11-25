@@ -9,7 +9,7 @@ import org.openqa.selenium.safari.SafariDriver;
 
 public class DriverManager {
     private static String webDriverType = "Edge";
-    private static DriverManager instance; //accesibila doar in clasa DriverManager
+    private static DriverManager instance; //obiect al clasei drivermanager accesibila doar in clasa DriverManager
     private WebDriver driver;
 
 //definim constructorul, accesibul doar in interiorul clasei deoarece este PRIVATE
@@ -49,15 +49,22 @@ public class DriverManager {
             instance = new DriverManager(); // se initializeaza obiectul de tip DriverManager
         }
         return instance;
-    }
+    } // poti sa creezi  doar o singura instanta a clasei respective si mereu o sa fie returnata doar acelasi obiect instanta
 
     //Metoda publica, de instanta pentru a obtine un obiect de tip webdriverul
 
-    public WebDriver getDriver() {
+    public WebDriver getDriver() { // getDriver este metoda de instanta
         if (driver == null) {
             getInstance(); //este o metoda statica definita in interiorul clasei DriverManager, putem apela aceasta metoda fara a scrie numele clasei
         }
         return driver;
+    }
+    public void quiteTheDriver(){
+        driver.quit();
+        driver = null;
+        instance = null;
+        System.out.println("The Driver is closed after running and completing a test scenario!");
+
     }
 
 }
