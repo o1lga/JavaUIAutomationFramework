@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class DriverManager {
-    private static String webDriverType = "Edge";
+    private static String webDriverType = "Chrome";
     private static DriverManager instance; //obiect al clasei drivermanager accesibila doar in clasa DriverManager
     private WebDriver driver;
 
@@ -19,10 +19,12 @@ public class DriverManager {
             // returneaza stringul doar ca cu litere mari
             case "CHROME":
                 //WebDriverManager.chromedriver().setup();
-                //ChromeOptions options = new ChromeOptions();
-                //options.addArguments("--remote-allow-origins=*");
-                //driver = new ChromeDriver(options);
-                driver = new ChromeDriver(); // driver - este obiect, si este initializat cu constructorul ChromeDriver
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--remote-allow-origins=*");
+                options.addArguments("--incognito");
+                driver = new ChromeDriver(options);
+                driver.manage().window().maximize();
+                //driver = new ChromeDriver(); // driver - este obiect, si este initializat cu constructorul ChromeDriver
                 System.out.println("The Chrome Driver was initiated!");
                 break;
             case "FIREFOX":
