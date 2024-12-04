@@ -25,9 +25,4 @@ public class LoginPage extends Page {
         System.out.println("The login form was populated with data");
     }
 
-    public void clickOnContinueButton(){
-        ScrollManager.scrollToElement(loginButton);
-        loginButton.click();
-        System.out.println("The login button was clicked");
-    }
 }
