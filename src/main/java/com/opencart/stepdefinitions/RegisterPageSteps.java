@@ -4,7 +4,6 @@ import com.opencart.managers.DataGeneratorManager;
 import com.opencart.managers.DriverManager;
 import com.opencart.pageobjects.RegisterPage;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Map;
@@ -18,16 +17,6 @@ public class RegisterPageSteps {
         String randomEmail = DataGeneratorManager.getRandomEmail();
         registerPage.completeTheRegisterForm("Olga", "Cosneanu", randomEmail, "Password1234!");
 
-    }
-
-    @And("the Privacy Toggle bar is enabled")
-    public void thePrivacyToggleBarIsEnabled() {
-        registerPage.enablePrivacyToggle();
-    }
-
-    @When("the continueButton is clicked")
-    public void theContinueButtonIsClicked() {
-        registerPage.clickOnContinueButton();
     }
 
     @And("the Register form is populated with data as following:")
